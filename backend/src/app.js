@@ -1,6 +1,7 @@
 const express = require('express');
 const authRouter = require('./routes/auth.routes');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const app = express();
 
 // Middleware to parse JSON requests
@@ -8,6 +9,12 @@ app.use(express.json());
 
 // Middleware to parse cookies
 app.use(cookieParser());
+
+app.use(cors({
+    origin: 'http://localhost:5173', // Replace with your frontend URL
+    credentials: true, // Allow cookies to be sent
+}));
+
 app.use('/api/auth', authRouter);
 
 module.exports = app;
