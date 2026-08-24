@@ -4,16 +4,41 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1.5rem;
+    background:
+        linear-gradient(135deg, rgba(255, 45, 120, 0.08), transparent 42%),
+        linear-gradient(315deg, rgba(74, 144, 226, 0.08), transparent 48%);
 
     .form-container{
         width: 100%;
-        max-width: 30rem;
-        padding: 2rem;
-        border-radius: 1rem;
-        background-color: #1e1e1e;
+        max-width: 27rem;
+        padding: clamp(1.5rem, 5vw, 2.5rem);
+        border: 1px solid #2a3348;
+        border-radius: 1.25rem;
+        background: rgba(22, 27, 34, 0.92);
+        box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3);
         display: flex;
         flex-direction: column;
         gap: 1rem;
+
+        h1 {
+            font-size: clamp(1.75rem, 5vw, 2.25rem);
+            letter-spacing: -0.04em;
+        }
+
+        > p {
+            color: #8f9aaa;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        [role='alert'] {
+            padding: 0.75rem 0.875rem;
+            border: 1px solid rgba(255, 77, 77, 0.35);
+            border-radius: 0.6rem;
+            background: rgba(255, 77, 77, 0.1);
+            color: #ff9b9b;
+        }
     }
 
     form {
@@ -30,14 +55,34 @@ main {
         input{
             padding-inline: 1rem;
             padding-block: 0.75rem;
-            border-radius: 0.75rem;
-            border: none;
+            border-radius: 0.6rem;
+            border: 1px solid #2a3348;
+            background: #1e2535;
+            color: #f2f5f8;
             outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+
+            &:focus {
+                border-color: #ff2d78;
+                box-shadow: 0 0 0 3px rgba(255, 45, 120, 0.12);
+            }
         }
     }
 
     a{
-        color: #e1034d;
+        color: #ff6b9d;
         text-decoration: none;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    main {
+        padding: 1rem;
+        align-items: flex-start;
+        padding-top: 3rem;
     }
 }
