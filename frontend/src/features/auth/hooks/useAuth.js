@@ -51,7 +51,7 @@ export const useAuth = () => {
         const getAndSetUser = async () => {
             try {
                 const data = await getMe();
-                setUser(data.user);
+                setUser(data?.user || null);
             } catch (error) {
                 console.error("Error fetching user data:", error);
             } finally {
